@@ -1,0 +1,4 @@
+line:=$greeting\, $name!
+greeting:=hi,hello,howdy,ohai,oh hi,good morning,good day,guten morgen,good afternoon,bonjour,aloha
+name:=Matthew,Mark,Luke,John,James,Judas Iscariot,Lucille Ball
+
