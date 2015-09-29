@@ -1,0 +1,2 @@
+# ggc
+Generative Grammar Compiler
