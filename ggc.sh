@@ -4,7 +4,15 @@
 # line <- <name> ":=" (<name>|<atom>)("," (<name>|<atom>))*
 # name <- "$"<atom>
 
-sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g' | awk '
+function pre() {
+	rm -f .includefiles
+	awk '/^#include/ { print $2 > ".includefiles" } { if(index($1, "#")!=1) { print } } '
+	if [[ -e .includefiles ]] ; then
+		cat $(cat .includefiles) | pre
+	fi
+}
+
+pre | sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g' | awk '
 	BEGIN { 
 		print "#!/usr/bin/env python\n# coding=UTF-8\nfrom random import Random\nrandom=Random()\n" 
 		FS=","
