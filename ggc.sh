@@ -25,5 +25,5 @@ sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g' | awk '
 	}
 	END {
 		print "print(" first "())"
-	}' | sed 's/\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+\1()+\"/g;s/\[,/[/;s/%%COMMA%%/,/g'
+	}' | sed 's/\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+\1()+\"/g;s/\[,/[/;s/%%COMMA%%/,/g;s/{/\"+random.choice(["/g;s/}/"])+"/g'
 
