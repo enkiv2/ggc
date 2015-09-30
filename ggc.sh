@@ -6,7 +6,7 @@
 
 sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g' | awk '
 	BEGIN { 
-		print "#!/usr/bin/env python\nfrom random import Random\nrandom=Random()\n" 
+		print "#!/usr/bin/env python\n# coding=UTF-8\nfrom random import Random\nrandom=Random()\n" 
 		FS=","
 	}
 	{
