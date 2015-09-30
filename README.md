@@ -10,4 +10,3 @@ See [test.gg](test.gg) and [zizek.gg](zizek.gg) for examples of grammars of vary
 Bugs:
 
 * Recursive grammars are not possible, because the generated python code will generate all possible components immediately, whether or not they are used.
-* While commas may be escaped, braces cannot be escaped.

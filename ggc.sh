@@ -12,7 +12,7 @@ function pre() {
 	fi
 }
 
-pre | sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g' | awk '
+pre | sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g;s/\\{/%%LBRACK%%/g;s/\\}/%%RBRACK%%/g' | awk '
 	BEGIN { 
 		print "#!/usr/bin/env python\n# coding=UTF-8\nfrom random import Random\nrandom=Random()\n" 
 		FS=","
@@ -33,5 +33,5 @@ pre | sed 's/:=/,:=,/;s/\\,/%%COMMA%%/g' | awk '
 	}
 	END {
 		print "print(" first "())"
-	}' | sed 's/\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+\1()+\"/g;s/\[,/[/;s/%%COMMA%%/,/g;s/{/\"+random.choice(["/g;s/}/"])+"/g'
+	}' | sed 's/\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+\1()+\"/g;s/\[,/[/;s/%%COMMA%%/,/g;s/{/\"+random.choice(["/g;s/}/"])+"/g;s/%%LBRACK%%/{/g;s/%%RBRACK%%/}/g'
 
