@@ -1,0 +1,47 @@
+#include names.gg
+#include places.gg
+NARRATIVE:=$TITLE\n\n$SEPARATION\n$INITIATION\n$RETURN\n
+HERO:=$fullName
+HEROGENDER:=male,female
+SENEXGENDER:=male,female
+HOMETOWN:=$town
+OTHERWORLD:=$imaginaryPlace
+ENEMY:={Devil,Balrog,Emperor,King,Monster,Archon,Alien,Dragon,Half-Elf,Giant,Minotaur,Mannakin,Mandragora,Werewolf,Vampire,Lich,Succubus} {Az,Zar,Kor,Ak,On,Ark,Xek,Rilk}{ar,or,arc,ork,ord}{el,wurm,or,oz,kil,kan}
+SENEX:={Old ,Old Man ,Sir ,Dr. ,Professor ,Master ,Brother ,} $fullName { the {Grey,White,Red,Brown,Green,Violet,Gold,Silver,Traveller,Mad Arab,Mad,Ancient,Wise,Necromancer,Mage,Magician,Wizard,Monk,Paladin,Thief,Shaman,Rogue,Knight,Warrior,Priest,Alchemist,Elf,Dwarf,Orc,Man,Night Elf,Halfling,Wolf,Madman,Mad Dog,Eagle-Eyed,Fisher King,Hangman,Dead,Dread,Dragonborn,Yeti Tamer,Dog Whisperer},}{ of {$imaginaryPlace,$town},}
+WEAPON:={The,A} {Magic,Enchanted,Golden,Silver,Kryptonite,Adamantium,Elven,Eldrich,Rusty,Green,Violet,Black,Dark,Glowing,Bright,Ancient,Arcane,Cyclopean,Antedeluvian} {Sword,Arrow,Bow,Shield,Cauldron,Light,Staff,Wand,Cup,Pentacle,Hand,Cloak,Cape,Scythe,Dart,Pistol,Stone,Amulet,Locket,Key,Book,Tome,Volume,Grimoire,Spell,Beans,Orb,Crystal,Doll,Stick,Pocketwatch,Mantra,Incantation,Bone,Charm,Rebis,Geas}{, of Glory, of Wrath, of Shame, of Love, of Power, of Darkness}
+TITLE:=$HERO{, and $SENEX} in $OTHERWORLD,From $HOMETOWN to $OTHERWORLD{, and Back Again},The {Secret,Mystery} of {$OTHERWORLD,$HOMETOWN,$WEAPON},$WEAPON in {$HOMETOWN,$OTHERWORLD},{$HERO,$SENEX} and $WEAPON
+HeroPronoun:=he,she
+HeroPosessive:=his,her
+HeroAttribute1:={Young,Brave,{Fair,Red,Golden}-haired,Courageous}
+weather:=It was a {warm,cold,hot,dark,muggy,foggy,humid}{ and,\,} {crisp,clear,cloudy,rainy,windy,stormy,moon-lit,overcast} {day,night}
+location:={a,the} {cave,cavern,mansion,castle,tower,shack,riverbed,gutter,forest,valley,trees,wall,shipyard,junkyard} {at the edge of,under,behind,above,beneath,a few miles away from,beside} {town,$HeroPosessive house,$HeroPosessive school,$HeroPosessive grandmother\'s house,$HeroPosessive crazy uncle\'s house,the old mill,the forbidden zone,$HOMETOWN}
+weaponAttribute:={dusty,rusty,worn,eldrich,cyclopean,ancient,antedeluvian,carved,hammered,riven,sharp,dull,glowing,pulsating,incredible,silent,vibrating,numinous} {pitch-black,green,red,violet,purple,orange,yellow,pink,leather,rawhide,grassy,wood,silver,gold,copper,brass,bronze,iron,steel,jewel-encrusted,gem-encrusted,gilded,gilt} {blade,handle,shaft,chain,harness,holster,grip,spikes,tether,tip,underside,shaft,handgrip,inlay,inlays,globes,patterns,carvings,runes,sigils,engravings,tassles,barrel,sack,satchel}
+aweAdjective:={beautiful,enchanting,terrifying,horrible,awful,amazing,incredible,bizarre,strange,ominous,numinous,horrifying}
+EnemyAttribute1:=$aweAdjective
+EnemyAttribute2:={slimy,scaly,squamous,rugose,clammy,oozing,hairy,wrinkly,dust-dry}
+EnemyAttribute:=$EnemyAttribute1 $EnemyAttribute2
+SenexHome:=$location
+SenexHomeDescription:=a $aweAdjective place\, {cut into the hillside,deep beneath the earth,hanging off a cliff,in the darkest depths of the forest,on the highest peak of the mountain,in the shadow of the mountain,nestled in the trunk of a great oak tree}\, made of {great blocks of granite,pure white marble,old driftwood,sod and straw,crumbling brick,ancient outcroppings,strange rock formations,the living bodies of plants,a heap of disintegrating animal hides,sticks and mud,uneven stone,concrete and rebar}\, with $aweAdjective {animals hanging from the cieling,organs in jars stacked on the shelves,potions sitting in the corner,chicken feet holding it off the ground,worm-eaten books piled against the walls,weapons above the mantle} and a {giant bonfire,great glowing orb,bubbling cauldron,summoning circle,rusty cage,operating table} {on,above,below,in the center of} {the drawing room,the library,the workshop,the yard}
+intro:=Once{\, long ago, upon a time,}\, in {the city of,the town of,the land of,the hamlet of,the village of} $HOMETOWN\, there {lived,resided} $HERO. $weather. $HeroPronoun {first ,}{found,discovered,saw,came upon} $WEAPON in $location.,$weather in {the city of,the town of,the land of,the hamlet of,the village of} $HOMETOWN when $HERO {first ,}{found,discovered,saw} $WEAPON. It was in $location
+intro2:=$intro It was $aweAdjective\, with its $aweAdjective $weaponAttribute and its $aweAdjective $weaponAttribute. $HeroPronoun didn\'t know {what it was,what to do,what to do with it,what this omen meant,what this message from the gods could mean}\, so $HeroPronoun went to $SenexHome to ask $SENEX. $SenexHome was $SenexHomeDescription. \"$HeroAttribute1 $HERO\,\" $SENEX said. \"This weapon\, $WEAPON\, is a {omen,sign from the gods,warning prophecy} of {doom,misfortune,fortune,times to come,glory}. It means you must {go,journey,travel,quest} to $OTHERWORLD and {slay,kill,defeat,tame} the $EnemyAttribute $ENEMY.\"
+CallToAdventure:=$intro2
+RefusalOfTheCall:=
+SupernaturalAid:=
+CrossingTheThreshhold:=
+BellyOfTheWhale:=
+SEPARATION:=$CallToAdventure\n$RefusalOfTheCall\n$SupernaturalAid\n$CrossingTheThreshhold\n$BellyOfTheWhale\n
+TheRoadOfTrials:=
+TheMeetingWithTheGoddess:=
+WomanAsTemptress:=
+AtonementWithTheFather:=
+Apotheosis:=
+TheUltimateBoon:=
+INITIATION:=$TheRoadOfTrials\n$TheMeetingWithTheGoddess\n$WomanAsTemptress\n$AtonementWithTheFather\n$Apotheosis\n$TheUltimateBoon\n
+RefusalOfTheReturn:=
+TheMagicFlight:=
+RescueFromWithout:=
+TheCrossingOfTheReturnThreshhold:=
+MasterOfTwoWorlds:=
+FreedomToLive:=
+RETURN:=$RefusalOfTheReturn\n$TheMagicFlight\n$RescueFromWithout\n$TheCrossingOfTheReturnThreshhold\n$MasterOfTwoWorlds\n$FreedomToLive\n
+
