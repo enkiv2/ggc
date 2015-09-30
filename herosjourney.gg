@@ -10,8 +10,8 @@ ENEMY:={Devil,Balrog,Emperor,King,Monster,Archon,Alien,Dragon,Half-Elf,Giant,Min
 SENEX:={Old ,Old Man ,Sir ,Dr. ,Professor ,Master ,Brother ,} $fullName { the {Grey,White,Red,Brown,Green,Violet,Gold,Silver,Traveller,Mad Arab,Mad,Ancient,Wise,Necromancer,Mage,Magician,Wizard,Monk,Paladin,Thief,Shaman,Rogue,Knight,Warrior,Priest,Alchemist,Elf,Dwarf,Orc,Man,Night Elf,Halfling,Wolf,Madman,Mad Dog,Eagle-Eyed,Fisher King,Hangman,Dead,Dread,Dragonborn,Yeti Tamer,Dog Whisperer},}{ of {$imaginaryPlace,$town},}
 WEAPON:={The,A} {Magic,Enchanted,Golden,Silver,Kryptonite,Adamantium,Elven,Eldrich,Rusty,Green,Violet,Black,Dark,Glowing,Bright,Ancient,Arcane,Cyclopean,Antedeluvian} {Sword,Arrow,Bow,Shield,Cauldron,Light,Staff,Wand,Cup,Pentacle,Hand,Cloak,Cape,Scythe,Dart,Pistol,Stone,Amulet,Locket,Key,Book,Tome,Volume,Grimoire,Spell,Beans,Orb,Crystal,Doll,Stick,Pocketwatch,Mantra,Incantation,Bone,Charm,Rebis,Geas}{, of Glory, of Wrath, of Shame, of Love, of Power, of Darkness}
 TITLE:=$$HERO{, and $$SENEX} in $$OTHERWORLD,From $$HOMETOWN to $$OTHERWORLD{, and Back Again},The {Secret,Mystery} of {$$OTHERWORLD,$$HOMETOWN,$$WEAPON},$$WEAPON in {$$HOMETOWN,$$OTHERWORLD},{$$HERO,$$SENEX} and $$WEAPON
-HeroPronoun:=he,she
-HeroPosessive:=his,her
+HeroPronoun:="+("he" if "$$HEROGENDER"=="male" else "she")+"
+HeroPosessive:="+("his" if "$$HEROGENDER"=="male" else "her")+"
 HeroAttribute1:={Young,Brave,{Fair,Red,Golden}-haired,Courageous}
 weather:=It was a {warm,cold,hot,dark,muggy,foggy,humid}{ and,\,} {crisp,clear,cloudy,rainy,windy,stormy,moon-lit,overcast} {day,night}
 location:={a,the} {cave,cavern,mansion,castle,tower,shack,riverbed,gutter,forest,valley,trees,wall,shipyard,junkyard} {at the edge of,under,behind,above,beneath,a few miles away from,beside} {town,$$HeroPosessive house,$$HeroPosessive school,$$HeroPosessive grandmother\'s house,$$HeroPosessive crazy uncle\'s house,the old mill,the forbidden zone,$$HOMETOWN}
