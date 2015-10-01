@@ -5,7 +5,7 @@ Usage:
 
     ./ggc.sh <input.gg >output.py
 
-See [test.gg](test.gg) and [zizek.gg](zizek.gg) for examples of grammars of varying complexity.
+See [examples/test.gg](examples/test.gg), [examples/zizek.gg](examples/zizek.gg), and [examples/herosjourney.gg](examples/herosjourney.gg) for examples of grammars of varying complexity.
 
 Notes:
 
