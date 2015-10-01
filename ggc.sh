@@ -52,17 +52,11 @@ pre |
 			# unused cached values, in order to speed up execution
 			cachedItems=cachedItems "\ncached_" $1 "=" $1 "()"
 
-			# cachedList is just a list of the cached values thus far, for use in defining
-			# globals. It might not be required.
-			cachedList=cachedList cSep "cached_"$1
-			cSep=","
-
 			if(!first) {
 				first=$1
 			}
 
 			ret=ret "\ndef " $1 "():"
-			ret=ret "\n\tglobal " cachedList ""
 			ret=ret "\n\treturn random.choice(["
 			for (i=3; i<=NF; i++) {
 				ret = ret sep "\"" $i "\""
