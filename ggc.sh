@@ -8,12 +8,19 @@ function pre() {
 	rm -f .includefiles
 	awk '/^#include/ { print $2 > ".includefiles" } { print }'
 	if [[ -e .includefiles ]] ; then
-		cat $(cat .includefiles) | pre
+		cat .includefiles | 
+			 ( while read -r x ; do 
+				echo "# Source filename: $x" ; 
+				cat "$x" ; 
+			done ) | pre
 	fi
 }
 
 if [[ $# -gt 0 ]] ; then
-	cat "$@" | $0
+	(for i in "$@" ; do
+		echo "# Source filename: $i"
+		cat "$i"
+	done )| $0
 	exit
 fi
 
@@ -40,7 +47,7 @@ pre |
 	}
 	{
 		if(index($1, "#")==1) {
-			print $0
+			ret = ret "\n" $0 "\n"
 		} else 	if($2==":=") {
 			# cachedItemsDummy pre-allocates blank variable names for cached items, 
 			# to trick python.
