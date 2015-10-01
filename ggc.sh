@@ -6,7 +6,7 @@
 
 function pre() {
 	rm -f .includefiles
-	awk '/^#include/ { print $2 > ".includefiles" } { if(index($1, "#")!=1) { print } } '
+	awk '/^#include/ { print $2 > ".includefiles" } { print }'
 	if [[ -e .includefiles ]] ; then
 		cat $(cat .includefiles) | pre
 	fi
@@ -39,7 +39,9 @@ pre |
 		FS=","
 	}
 	{
-		if($2==":=") {
+		if(index($1, "#")==1) {
+			print $0
+		} else 	if($2==":=") {
 			# cachedItemsDummy pre-allocates blank variable names for cached items, 
 			# to trick python.
 			# Otherwise, references to the cached variables are assumed to be undefined 
