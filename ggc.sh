@@ -12,6 +12,11 @@ function pre() {
 	fi
 }
 
+if [[ $# -gt 0 ]] ; then
+	cat "$@" | $0
+	exit
+fi
+
 pre | 
 	sed '
 		s/:=/,:=,/;
