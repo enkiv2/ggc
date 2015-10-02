@@ -20,6 +20,3 @@ Bugs:
 * Recursive grammars are not possible, because the generated python code will generate all possible components immediately, whether or not they are used.
 * Mismatched braces are neither detected nor handled gracefully. (WONTFIX)
 
-Todo:
-
-* Includes should be idempotent.

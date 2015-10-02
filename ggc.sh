@@ -4,11 +4,17 @@
 # line <- <name> ":=" (<name>|<atom>)("," (<name>|<atom>))*
 # name <- "$"<atom>
 
+rm -f .includefiles .combinedincludes
+
 function pre() {
-	rm -f .includefiles
+	touch .combinedincludes
+	if [[ -e .includefiles ]] ; then
+		cat .includefiles | grep . >> .combinedincludes
+		rm .includefiles
+	fi
 	awk '/^#include/ { print $2 > ".includefiles" } { print }'
 	if [[ -e .includefiles ]] ; then
-		cat .includefiles | 
+		cat .includefiles | egrep -v "^($(cat .combinedincludes | tr '\n' '|'))\$" | grep . |
 			 ( while read -r x ; do 
 				echo "# Source filename: $x" ; 
 				cat "$x" ; 
