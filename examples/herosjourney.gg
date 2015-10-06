@@ -14,7 +14,7 @@ HeroPronoun:="+("he" if "$$HEROGENDER"=="male" else "she")+"
 HeroPosessive:="+("his" if "$$HEROGENDER"=="male" else "her")+"
 HeroAttribute1:={Young,Brave,{Fair,Red,Golden}-haired,Courageous}
 weather:=It was a {warm,cold,hot,dark,muggy,foggy,humid}{ and,\,} {crisp,clear,cloudy,rainy,windy,stormy,moon-lit,overcast} {day,night}
-location:={a,the} {cave,cavern,mansion,castle,tower,shack,riverbed,gutter,forest,valley,trees,wall,shipyard,junkyard} {at the edge of,under,behind,above,beneath,a few miles away from,beside} {town,$$HeroPosessive house,$$HeroPosessive school,$$HeroPosessive grandmother\'s house,$$HeroPosessive crazy uncle\'s house,the old mill,the forbidden zone,$$HOMETOWN}
+location:={a,the} {cave,cavern,mansion,castle,tower,shack,riverbed,gutter,forest,valley,trees,wall,shipyard,junkyard} {at the edge of,under,behind,above,beneath,a few miles away from,beside} {town,$$HeroPosessive{{, {grandmother\'s,crazy uncle\'s}} house, school},the old mill,the forbidden zone,$$HOMETOWN}
 weaponAttribute:={dusty,rusty,worn,eldrich,cyclopean,ancient,antedeluvian,carved,hammered,riven,sharp,dull,glowing,pulsating,incredible,silent,vibrating,numinous} {pitch-black,green,red,violet,purple,orange,yellow,pink,leather,rawhide,grassy,wood,silver,gold,copper,brass,bronze,iron,steel,jewel-encrusted,gem-encrusted,gilded,gilt} {blade,handle,shaft,chain,harness,holster,grip,spikes,tether,tip,underside,shaft,handgrip,inlay,inlays,globes,patterns,carvings,runes,sigils,engravings,tassles,barrel,sack,satchel}
 aweAdjective:={beautiful,enchanting,terrifying,horrible,awful,amazing,incredible,bizarre,strange,ominous,numinous,horrifying}
 EnemyAttribute1:=$aweAdjective
