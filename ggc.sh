@@ -4,7 +4,8 @@
 # line <- <name> ":=" (<name>|<atom>)("," (<name>|<atom>))*
 # name <- "$"<atom>
 
-rm -f .includefiles .combinedincludes
+rm -f .includefiles .combinedincludes .importfiles
+touch .importfiles
 
 function pre() {
 	touch .combinedincludes
@@ -12,7 +13,9 @@ function pre() {
 		cat .includefiles | grep . >> .combinedincludes
 		rm .includefiles
 	fi
-	awk '/^#include/ { print $2 > ".includefiles" } { print }'
+	awk '	/^#include/ { print $2 > ".includefiles" } 
+		/^#import/  { print $2 > ".importfiles"  } 
+		{ print }'
 	if [[ -e .includefiles ]] ; then
 		cat .includefiles | egrep -v "^($(cat .combinedincludes | tr '\n' '|'))\$" | grep . |
 			 ( while read -r x ; do 
@@ -85,11 +88,13 @@ pre |
 		print ret
 		print cachedItems
 		print "print(" first "())"
-	}' | sed '
-		s/\$\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+cached_\1+\"/g;
-		s/\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+\1()+\"/g;
-		s/{/\"+random.choice(["/g;s/}/"])+"/g;
-		s/\[,/[/;s/%%COMMA%%/,/g;
-		s/%%LBRACK%%/{/g;
-		s/%%RBRACK%%/}/g'
+	}' | (
+		cat .importfiles | xargs cat ; 
+		sed '
+			s/\$\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+cached_\1+\"/g;
+			s/\$\([a-zA-Z0-9_][a-zA-Z0-9_]*\)/"+\1()+\"/g;
+			s/{/\"+random.choice(["/g;s/}/"])+"/g;
+			s/\[,/[/;s/%%COMMA%%/,/g;
+			s/%%LBRACK%%/{/g;
+			s/%%RBRACK%%/}/g' )
 
