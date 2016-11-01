@@ -24,13 +24,38 @@ Files can be included using '#include':
 #include library.gg
 .RE
 
+
 Expansions can contain anonymous rules -- sets of expansions enclosed in braces ({}) -- as well as other named rules (which are prefixed with the dollar sign ('$')) and cached/static expansions of named rules (prefixed by two dollar signs).
 
 Rule names can contain letters, numbers, and underscores. Because of python's naming rules, rule names must not begin with a number.
 
+.SH EXTENSION
+Python files can be imported using '#import':
+
+.RS
+#import library.py
+.RE
+
+Such a python file will be added into the output prior to all generated code.
+
+A named rule may be defined using a function using that name, taking no arguments and returning a string. For instance:
+
+.RS
+def digit(): return random.choice(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
+.RE
+
+is equivalent to the GG code:
+
+.RS
+digit:=0,1,2,3,4,5,6,7,8,9
+.RE
+
+A static/cached expansion may be defined the same way, by prefixing "cached_" to the function name.
+
+
 .SH COPYING
 
-GGC (c) 2015, John Ohno.
+GGC (c) 2015-2016, John Ohno.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
