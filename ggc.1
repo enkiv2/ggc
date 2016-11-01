@@ -36,7 +36,7 @@ Python files can be imported using '#import':
 #import library.py
 .RE
 
-Such a python file will be added into the output prior to all generated code.
+Such a python file will be added into the output prior to all generated rules.
 
 A named rule may be defined using a function using that name, taking no arguments and returning a string. For instance:
 
@@ -50,7 +50,7 @@ is equivalent to the GG code:
 digit:=0,1,2,3,4,5,6,7,8,9
 .RE
 
-A static/cached expansion may be defined the same way, by prefixing "cached_" to the function name.
+A static/cached expansion may be defined by defining a string with the name "cached_" followed by the rule name.
 
 
 .SH COPYING
